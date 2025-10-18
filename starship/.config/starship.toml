@@ -1,0 +1,26 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+right_format = "$cmd_duration $time"
+
+[line_break]
+disabled = true
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+
+[directory]
+truncate_to_repo = true
+read_only = "🔒"
+
+[time]
+disabled = false
+format = "[$time]($style)"
+time_format = "%H:%M:%S"
+
+[cmd_duration]
+min_time = 1000
+format = "⏱ [$duration]($style) "
