@@ -1,7 +1,6 @@
 brew "antidote"
 brew "asdf"
 brew "bat"
-brew "chezmoi"
 brew "fzf"
 brew "starship"
 brew "tree"
