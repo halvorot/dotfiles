@@ -9,12 +9,14 @@ Each directory in the repo corresponds to a set of configuration files for a spe
 ## Installation
 
 1. Clone the repository:
+
     ```sh
     git clone https://github.com/halvorot/dotfiles.git ~/dotfiles
     cd ~/dotfiles
     ```
 
 2. Install GNU Stow (if not already installed):
+
     ```sh
     # macOS
     brew install stow
@@ -24,6 +26,7 @@ Each directory in the repo corresponds to a set of configuration files for a spe
     ```
 
 3. Stow the desired configuration:
+
     ```sh
     stow zsh
     stow homebrew
