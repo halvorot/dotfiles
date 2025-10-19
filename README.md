@@ -26,7 +26,7 @@ Each directory in the repo corresponds to a set of configuration files for a spe
 3. Stow the desired configuration:
     ```sh
     stow zsh
-    stow vim
+    stow homebrew
     stow git
     ```
 
