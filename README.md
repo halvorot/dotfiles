@@ -10,7 +10,7 @@ Each directory in the repo corresponds to a set of configuration files for a spe
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/dotfiles.git ~/dotfiles
+    git clone https://github.com/halvorot/dotfiles.git ~/dotfiles
     cd ~/dotfiles
     ```
 
