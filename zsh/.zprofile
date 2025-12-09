@@ -5,5 +5,5 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 . $(brew --prefix asdf)/libexec/asdf.sh
 
 # Added by Toolbox App
-export PATH="$PATH:/Users/halvor/Library/Application Support/JetBrains/Toolbox/scripts"
+export PATH="$PATH:/Users/halvor/Library/Application\ Support/JetBrains/Toolbox/scripts"
 

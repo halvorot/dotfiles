@@ -25,6 +25,9 @@ time_format = "%H:%M:%S"
 min_time = 1000
 format = "⏱ [$duration]($style) "
 
+[package]
+disabled = true
+
 [golang]
 format = "via [go $version]($style) "
 symbol = "go "

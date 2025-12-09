@@ -33,4 +33,4 @@ setopt HIST_IGNORE_DUPS SHARE_HISTORY
 bindkey -e
 
 # Starship (should be at the end)
-eval "$(starship init zsh)"
+eval "$(starship init zsh)"export PATH="$HOME/.local/bin:$PATH"
