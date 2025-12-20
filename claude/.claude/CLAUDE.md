@@ -14,6 +14,7 @@ Ask me any questions you need clarification to instead of making guesses or assu
 ## Coding standards and convensions
 
 - Use industry best practices and prioritize clarity, readability, maintainability, and testability.
+- Make sure the system builds and linting and tests pass before stating that a feature or refactor is complete.
 
 ### Testing
 
