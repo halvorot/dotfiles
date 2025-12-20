@@ -25,16 +25,14 @@ Each directory in the repo corresponds to a set of configuration files for a spe
     sudo apt-get install stow
     ```
 
-3. Stow the desired configuration:
+3. Stow the desired configuration to symlink them to your home:
 
     ```sh
-    stow zsh
-    stow homebrew
-    stow git
+    cd ~/dotfiles && stow asdf && stow claude && stow git && stow homebrew && stow starship && stow zsh
     ```
 
 ## Usage
 
 - Add new configuration files in their respective directories.
-- Use `stow <directory>` to symlink them to your home directory.
+- Use `stow <directory>` when in the `dotfiles` directory to symlink them to your home directory.
 - To remove symlinks, use `stow -D <directory>`.
