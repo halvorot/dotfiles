@@ -14,9 +14,14 @@ Ask me any questions you need clarification to instead of making guesses or assu
 ## Coding standards and convensions
 
 - Use industry best practices and prioritize clarity, readability, maintainability, and testability.
-- Make sure the system builds and linting and tests pass before stating that a feature or refactor is complete.
+- Make sure the system builds, and linting and tests pass before stating that a feature or refactor is complete.
+- Always make sure that the implementation adheres to security best practices.
 
 ### Testing
 
 - Use the "Arrange, Act, Assert" pattern for unit tests. Make sure to separate the different sections with a comment.
 - All tests should be deterministic and independent of each other. Avoid relying on shared state, shared mocks etc.
+
+## Rules
+
+- Always use context7 when I need code generation, setup or configuration steps, or library/API documentation to get up-to-date, version-specific documentation and code examples. This means you should automatically use the Context7 MCP tools to resolve library id and get library docs without me having to explicitly ask.
