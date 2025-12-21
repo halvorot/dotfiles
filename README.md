@@ -25,14 +25,39 @@ Each directory in the repo corresponds to a set of configuration files for a spe
     sudo apt-get install stow
     ```
 
-3. Stow the desired configuration to symlink them to your home:
+3. Stow the desired configuration to symlink them to your home, e.g.:
 
     ```sh
-    cd ~/dotfiles && stow asdf && stow claude && stow git && stow homebrew && stow starship && stow zsh
+    cd ~/dotfiles && stow homebrew
     ```
 
 ## Usage
 
-- Add new configuration files in their respective directories.
+Each directory maps directly to $HOME, so `zsh/.zshrc → ~/.zshrc` and `starship/.config/starship.toml → ~/.config/starship.toml`
+
+### Adding dotfiles
+
+- Add new configuration files in a respective directoy.
+- 
+
+
+### Applying dotfiles
+
+#### Complete bootstrap
+
+From the root of the dotfiles repo, run:
+
+```sh
+./bootstrap.sh
+```
+
+This will safely:
+
+- Create/update symlinks using `stow`
+- Apply macOS system defaults
+- Re-run without side effects
+
+#### Selective applying
+
 - Use `stow <directory>` when in the `dotfiles` directory to symlink them to your home directory.
 - To remove symlinks, use `stow -D <directory>`.
