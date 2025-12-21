@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+CHANGED=0
+
 log() {
   printf "[macos] %s\n" "$1"
 }
@@ -31,11 +33,15 @@ defaults_write() {
   else
     log "Setting $domain:$key → $value"
     defaults write "$domain" "$key" "-$type" "$value"
+    CHANGED=1
   fi
 }
 
 restart() {
-  for app in "$@"; do
-    killall "$app" >/dev/null 2>&1 || true
-  done
+  if [[ "$CHANGED" -eq 1 ]]; then
+    log "Restarting $*"
+    killall "$@" >/dev/null 2>&1 || true
+  else
+    log "No changes, skipping restart for $*"
+  fi
 }
