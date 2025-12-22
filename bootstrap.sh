@@ -49,8 +49,8 @@ check_dependencies() {
   if [ ${#missing[@]} -gt 0 ]; then
     echo "Error: Missing dependencies: ${missing[*]}"
     echo ""
-    [ "${missing[*]}" =~ "stow" ] && echo "Install stow: brew install stow"
-    [ "${missing[*]}" =~ "homebrew" ] && echo "Install Homebrew: https://brew.sh"
+    [[ "${missing[*]}" =~ stow ]] && echo "Install stow: brew install stow"
+    [[ "${missing[*]}" =~ homebrew ]] && echo "Install Homebrew: https://brew.sh"
     exit 1
   fi
 }
@@ -88,7 +88,7 @@ fi
 
 # Validate specified packages
 for pkg in "${PACKAGES[@]}"; do
-  if [[ ! " ${ALL_PACKAGES[*]} " =~ " ${pkg} " ]]; then
+  if [[ ! " ${ALL_PACKAGES[*]} " =~ " $pkg " ]]; then
     echo "Error: Unknown package '$pkg'"
     echo "Available packages: ${ALL_PACKAGES[*]}"
     exit 1
