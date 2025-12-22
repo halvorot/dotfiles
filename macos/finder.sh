@@ -7,4 +7,11 @@ defaults_write com.apple.finder AppleShowAllFiles bool true
 defaults_write com.apple.finder NewWindowTarget string "PfHm" # Home folder
 defaults_write NSGlobalDomain AppleShowAllExtensions bool true
 
+# List view in by default
+# Possible: `icnv`, `clmv`, `Flwv`
+defaults_write com.apple.finder FXPreferredViewStyle string "Nlsv"
+
+# Show the ~/Library folder
+chflags nohidden ~/Library
+
 restart Finder
