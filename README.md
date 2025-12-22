@@ -37,8 +37,8 @@ Each directory maps directly to $HOME, so `zsh/.zshrc → ~/.zshrc` and `starshi
 
 ### Adding dotfiles
 
-- Add new configuration files in a respective directoy.
-- 
+- Add new configuration files in a respective directory
+- Update `ALL_PACKAGES` in `bootstrap.sh` if adding a new package
 
 
 ### Applying dotfiles
@@ -59,5 +59,14 @@ This will safely:
 
 #### Selective applying
 
-- Use `stow <directory>` when in the `dotfiles` directory to symlink them to your home directory.
-- To remove symlinks, use `stow -D <directory>`.
+Stow specific packages only:
+
+```sh
+./bootstrap.sh git zsh         # Stow only git and zsh
+./bootstrap.sh --help           # Show all options
+```
+
+Or use stow directly:
+
+- Use `stow <directory>` when in the `dotfiles` directory to symlink them to your home directory
+- To remove symlinks, use `stow -D <directory>`
