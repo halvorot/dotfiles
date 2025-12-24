@@ -41,50 +41,17 @@ if echo "${CLEANUP_OUTPUT}" | grep -q "Would uninstall"; then
         fi
 
         echo -e "\nOptions:"
-        echo "1) Add all to Brewfile"
-        echo "2) Uninstall all"
-        echo "3) Keep as-is (do nothing)"
-        read -p "Choice (1/2/3): " -n 1 -r CHOICE
+        echo "1) Uninstall all"
+        echo "2) Keep as-is (do nothing)"
+        read -p "Choice (1/2): " -n 1 -r CHOICE
         echo
 
         case $CHOICE in
             1)
-                echo -e "\n==> Adding to Brewfile..."
-                if [ -n "${FORMULAS}" ]; then
-                    for formula in ${FORMULAS}; do
-                        if ! grep -q "^brew \"${formula}\"" "${BREWFILE}"; then
-                            # Add after last brew line
-                            sed -i '' "/^brew /a\\
-brew \"${formula}\"
-" "${BREWFILE}"
-                        fi
-                    done
-                fi
-                if [ -n "${CASKS}" ]; then
-                    for cask in ${CASKS}; do
-                        if ! grep -q "^cask \"${cask}\"" "${BREWFILE}"; then
-                            # Add after last cask line
-                            sed -i '' "/^cask /a\\
-cask \"${cask}\"
-" "${BREWFILE}"
-                        fi
-                    done
-                fi
-                # Sort and clean up Brewfile
-                {
-                    grep "^brew " "${BREWFILE}" | sort -u
-                    echo
-                    grep "^cask " "${BREWFILE}" | sort -u
-                    echo
-                } > "${BREWFILE}.tmp"
-                mv "${BREWFILE}.tmp" "${BREWFILE}"
-                echo "Updated Brewfile"
-                ;;
-            2)
                 echo -e "\n==> Uninstalling..."
                 brew bundle cleanup --file="${BREWFILE}" --force
                 ;;
-            3)
+            2)
                 echo -e "\n==> Keeping as-is"
                 ;;
             *)
