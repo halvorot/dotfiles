@@ -1,0 +1,102 @@
+#!/usr/bin/env bash
+
+set -e
+
+BREWFILE="${HOME}/Brewfile"
+
+echo "==> Updating Homebrew..."
+brew update
+
+echo -e "\n==> Upgrading formulas..."
+brew upgrade
+
+echo -e "\n==> Upgrading casks..."
+brew upgrade --cask --greedy
+
+echo -e "\n==> Installing missing Brewfile items..."
+brew bundle install --file="${BREWFILE}"
+
+echo -e "\n==> Checking for items not in Brewfile..."
+CLEANUP_OUTPUT=$(brew bundle cleanup --file="${BREWFILE}" 2>&1 || true)
+
+if echo "${CLEANUP_OUTPUT}" | grep -q "Would uninstall"; then
+    echo "${CLEANUP_OUTPUT}"
+    echo -e "\n==> Items installed but not in Brewfile found."
+    read -p "View items and decide? (y/n): " -n 1 -r
+    echo
+
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        # Extract formula and cask names
+        FORMULAS=$(echo "${CLEANUP_OUTPUT}" | grep "Would uninstall formula" | sed 's/Would uninstall formula //' || true)
+        CASKS=$(echo "${CLEANUP_OUTPUT}" | grep "Would uninstall cask" | sed 's/Would uninstall cask //' || true)
+
+        if [ -n "${FORMULAS}" ]; then
+            echo -e "\n==> Formulas to decide on:"
+            echo "${FORMULAS}"
+        fi
+
+        if [ -n "${CASKS}" ]; then
+            echo -e "\n==> Casks to decide on:"
+            echo "${CASKS}"
+        fi
+
+        echo -e "\nOptions:"
+        echo "1) Add all to Brewfile"
+        echo "2) Uninstall all"
+        echo "3) Keep as-is (do nothing)"
+        read -p "Choice (1/2/3): " -n 1 -r CHOICE
+        echo
+
+        case $CHOICE in
+            1)
+                echo -e "\n==> Adding to Brewfile..."
+                if [ -n "${FORMULAS}" ]; then
+                    for formula in ${FORMULAS}; do
+                        if ! grep -q "^brew \"${formula}\"" "${BREWFILE}"; then
+                            # Add after last brew line
+                            sed -i '' "/^brew /a\\
+brew \"${formula}\"
+" "${BREWFILE}"
+                        fi
+                    done
+                fi
+                if [ -n "${CASKS}" ]; then
+                    for cask in ${CASKS}; do
+                        if ! grep -q "^cask \"${cask}\"" "${BREWFILE}"; then
+                            # Add after last cask line
+                            sed -i '' "/^cask /a\\
+cask \"${cask}\"
+" "${BREWFILE}"
+                        fi
+                    done
+                fi
+                # Sort and clean up Brewfile
+                {
+                    grep "^brew " "${BREWFILE}" | sort -u
+                    echo
+                    grep "^cask " "${BREWFILE}" | sort -u
+                    echo
+                } > "${BREWFILE}.tmp"
+                mv "${BREWFILE}.tmp" "${BREWFILE}"
+                echo "Updated Brewfile"
+                ;;
+            2)
+                echo -e "\n==> Uninstalling..."
+                brew bundle cleanup --file="${BREWFILE}" --force
+                ;;
+            3)
+                echo -e "\n==> Keeping as-is"
+                ;;
+            *)
+                echo -e "\n==> Invalid choice, keeping as-is"
+                ;;
+        esac
+    fi
+else
+    echo "System in sync with Brewfile ✓"
+fi
+
+echo -e "\n==> Cleaning up old versions..."
+brew cleanup
+
+echo -e "\n==> Done!"
