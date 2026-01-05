@@ -4,9 +4,6 @@ export EDITOR="code -w"
 # Compilation flags
 export ARCHFLAGS="-arch arm64"
 
-# asdf
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-
 # scripts
 export PATH="$HOME/.config/scripts:$PATH"
 

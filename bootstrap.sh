@@ -2,7 +2,7 @@
 set -e
 
 # Available stow packages
-ALL_PACKAGES=(asdf claude git homebrew scripts starship zsh)
+ALL_PACKAGES=(claude git homebrew scripts starship zsh)
 
 confirm() {
   read -r -p "$1 [y/N] " response
