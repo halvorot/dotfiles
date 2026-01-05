@@ -26,20 +26,6 @@ if echo "${CLEANUP_OUTPUT}" | grep -q "Would uninstall"; then
     echo
 
     if [[ $REPLY =~ ^[Yy]$ ]]; then
-        # Extract formula and cask names
-        FORMULAS=$(echo "${CLEANUP_OUTPUT}" | grep "Would uninstall formula" | sed 's/Would uninstall formula //' || true)
-        CASKS=$(echo "${CLEANUP_OUTPUT}" | grep "Would uninstall cask" | sed 's/Would uninstall cask //' || true)
-
-        if [ -n "${FORMULAS}" ]; then
-            echo -e "\n==> Formulas to decide on:"
-            echo "${FORMULAS}"
-        fi
-
-        if [ -n "${CASKS}" ]; then
-            echo -e "\n==> Casks to decide on:"
-            echo "${CASKS}"
-        fi
-
         echo -e "\nOptions:"
         echo "1) Uninstall all"
         echo "2) Keep as-is (do nothing)"

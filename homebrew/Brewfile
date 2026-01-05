@@ -1,5 +1,4 @@
 brew "antidote"
-brew "asdf"
 brew "bat"
 brew "ffmpeg"
 brew "fzf"

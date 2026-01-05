@@ -37,6 +37,18 @@ bindkey -e
 
 bindkey " " magic-space # To undo key binding for space, remove this line and run `bindkey " " self-insert` in terminal
 
+chpwd() {
+  # Auto-activate Python virtual environments
+  if [[ -d .venv ]]; then
+    source .venv/bin/activate
+  fi
+
+  # Auto-use correct Node version with nvm
+  if [[ -f .nvmrc ]]; then
+    nvm use
+  fi
+}
+
 # bun completions
 [ -s "/Users/halvor/.bun/_bun" ] && source "/Users/halvor/.bun/_bun"
 
