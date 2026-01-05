@@ -37,12 +37,12 @@ bindkey -e
 
 bindkey " " magic-space # To undo key binding for space, remove this line and run `bindkey " " self-insert` in terminal
 
-# Starship (should be at the end)
-eval "$(starship init zsh)"export PATH="$HOME/.local/bin:$PATH"
-
 # bun completions
 [ -s "/Users/halvor/.bun/_bun" ] && source "/Users/halvor/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Starship (should be at the end)
+eval "$(starship init zsh)"export PATH="$HOME/.local/bin:$PATH"
