@@ -35,12 +35,12 @@ bindkey '^[[B' down-line-or-beginning-search
 setopt HIST_IGNORE_DUPS SHARE_HISTORY
 bindkey -e
 
-# Starship (should be at the end)
-eval "$(starship init zsh)"export PATH="$HOME/.local/bin:$PATH"
-
 # bun completions
 [ -s "/Users/halvor/.bun/_bun" ] && source "/Users/halvor/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Starship (should be at the end)
+eval "$(starship init zsh)"export PATH="$HOME/.local/bin:$PATH"
