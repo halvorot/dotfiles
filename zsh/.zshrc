@@ -35,6 +35,8 @@ bindkey '^[[B' down-line-or-beginning-search
 setopt HIST_IGNORE_DUPS SHARE_HISTORY
 bindkey -e
 
+bindkey " " magic-space # To undo key binding for space, remove this line and run `bindkey " " self-insert` in terminal
+
 # Starship (should be at the end)
 eval "$(starship init zsh)"export PATH="$HOME/.local/bin:$PATH"
 
