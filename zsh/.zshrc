@@ -55,3 +55,4 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Starship (should be at the end)
 eval "$(starship init zsh)"export PATH="$HOME/.local/bin:$PATH"
+eval "$(uv generate-shell-completion zsh)"

@@ -13,6 +13,7 @@ brew "starship"
 brew "stow"
 brew "supabase"
 brew "tree"
+brew "uv"
 
 cask "affinity"
 cask "claude-code"
