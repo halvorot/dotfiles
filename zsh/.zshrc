@@ -46,6 +46,10 @@ chpwd() {
   fi
 }
 
+# uv completions
+eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"
+
 # bun completions
 [ -s "/Users/halvor/.bun/_bun" ] && source "/Users/halvor/.bun/_bun"
 
@@ -55,4 +59,3 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Starship (should be at the end)
 eval "$(starship init zsh)"export PATH="$HOME/.local/bin:$PATH"
-eval "$(uv generate-shell-completion zsh)"
