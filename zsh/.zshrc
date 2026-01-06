@@ -35,14 +35,9 @@ bindkey -e
 bindkey " " magic-space # To undo key binding for space, remove this line and run `bindkey " " self-insert` in terminal
 
 # chpwd hooks that run on directory change
-chpwd() {
-  # Auto-activate Python virtual environments
-  auto_venv()
+autoload -Uz add-zsh-hook
 
-  # Auto-use correct Node version with nvm
-  auto_nvm()
-}
-
+# Auto-activate Python virtual environments
 function auto_venv() {
   # If already in a virtualenv, do nothing
   if [[ -n "$VIRTUAL_ENV" && "$PWD" != *"${VIRTUAL_ENV:h}"* ]]; then
@@ -61,9 +56,13 @@ function auto_venv() {
     dir="${dir:h}"
   done
 }
+# Auto-use correct Node version with nvm
 function auto_nvm() {
   [[ -f .nvmrc ]] && nvm use
 }
+
+add-zsh-hook chpwd auto_venv
+add-zsh-hook chpwd auto_nvm
 
 # uv completions
 eval "$(uv generate-shell-completion zsh)"
