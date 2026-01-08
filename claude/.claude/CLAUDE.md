@@ -17,6 +17,7 @@ Ask me any questions you need clarification to instead of making guesses or assu
 
 - Use the "Arrange, Act, Assert" pattern for unit tests. Make sure to separate the different sections with a comment.
 - All tests should be deterministic and independent of each other. Avoid relying on shared state, shared mocks etc.
+- Test behavior, not implementation.
 
 ## Workflow
 
