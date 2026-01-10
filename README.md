@@ -78,13 +78,7 @@ brew-sync
 
 Script: `./macos/apply.sh`
 
-Applies system preferences across:
-
-- **Desktop**: Disable .DS_Store on USB/network drives
-- **Dock**: Diable autohide, set tile size, disable recent apps
-- **Finder**: Show pathbar, all files, extensions, default view (list), ~/Library folder
-- **Screenshots**: Save location (Downloads)
-- **Trackpad**: Tap to click, two-finger right-click
+Applies system preferences across Desktop, Dock, Finder, Screenshots, Trackpad.
 
 Run via bootstrap or directly:
 
