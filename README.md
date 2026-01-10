@@ -15,22 +15,6 @@ Each directory in the repo corresponds to a set of configuration files for a spe
     cd ~/dotfiles
     ```
 
-2. Install GNU Stow (if not already installed):
-
-    ```sh
-    # macOS
-    brew install stow
-
-    # Debian/Ubuntu
-    sudo apt-get install stow
-    ```
-
-3. Stow the desired configuration to symlink them to your home, e.g.:
-
-    ```sh
-    cd ~/dotfiles && stow homebrew
-    ```
-
 ## Usage
 
 Each directory maps directly to $HOME, so `zsh/.zshrc → ~/.zshrc` and `starship/.config/starship.toml → ~/.config/starship.toml`
@@ -39,7 +23,6 @@ Each directory maps directly to $HOME, so `zsh/.zshrc → ~/.zshrc` and `starshi
 
 - Add new configuration files in a respective directory
 - Update `ALL_PACKAGES` in `bootstrap.sh` if adding a new package
-
 
 ### Applying dotfiles
 
@@ -70,3 +53,41 @@ Or use stow directly:
 
 - Use `stow <directory>` when in the `dotfiles` directory to symlink them to your home directory
 - To remove symlinks, use `stow -D <directory>`
+
+## Features
+
+### Homebrew
+
+Script: `~/.config/scripts/brew-sync`
+
+Syncs system with `~/Brewfile`:
+
+- Updates Homebrew
+- Upgrades formulas and casks (including greedy casks)
+- Installs missing Brewfile items
+- Detects items not in Brewfile with interactive cleanup option
+- Removes old versions
+
+Usage:
+
+```sh
+brew-sync
+```
+
+### macOS System Defaults
+
+Script: `./macos/apply.sh`
+
+Applies system preferences across:
+
+- **Desktop**: Disable .DS_Store on USB/network drives
+- **Dock**: Diable autohide, set tile size, disable recent apps
+- **Finder**: Show pathbar, all files, extensions, default view (list), ~/Library folder
+- **Screenshots**: Save location (Downloads)
+- **Trackpad**: Tap to click, two-finger right-click
+
+Run via bootstrap or directly:
+
+```sh
+./macos/apply.sh
+```
