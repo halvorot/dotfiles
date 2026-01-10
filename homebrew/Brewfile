@@ -1,5 +1,8 @@
+tap "oven-sh/bun"
+
 brew "antidote"
 brew "bat"
+brew "bun"
 brew "ffmpeg"
 brew "fzf"
 brew "gemini-cli"
