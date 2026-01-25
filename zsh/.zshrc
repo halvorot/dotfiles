@@ -56,13 +56,8 @@ function auto_venv() {
     dir="${dir:h}"
   done
 }
-# Auto-use correct Node version with nvm
-function auto_nvm() {
-  [[ -f .nvmrc ]] && nvm use
-}
 
 add-zsh-hook chpwd auto_venv
-add-zsh-hook chpwd auto_nvm
 
 # uv completions
 eval "$(uv generate-shell-completion zsh)"
