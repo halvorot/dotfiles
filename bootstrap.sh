@@ -2,7 +2,7 @@
 set -e
 
 # Available stow packages
-ALL_PACKAGES=(claude git homebrew starship zsh karabiner)
+ALL_PACKAGES=(claude git homebrew starship zsh mise)
 
 confirm() {
   read -r -p "$1 [y/N] " response

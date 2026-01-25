@@ -63,9 +63,8 @@ add-zsh-hook chpwd auto_venv
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
 
-# Java
-export JAVA_HOME="$(brew --prefix openjdk@21)/libexec/openjdk.jdk/Contents/Home"
-export PATH="$JAVA_HOME/bin:$PATH"
+# Mise
+eval "$(mise activate zsh)"
 
 # Starship (should be at the end)
 eval "$(starship init zsh)"export PATH="$HOME/.local/bin:$PATH"
