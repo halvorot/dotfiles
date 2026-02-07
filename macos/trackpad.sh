@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 set -e
-
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-# shellcheck source=lib.sh
-source "$SCRIPT_DIR/lib.sh"
+source "$(dirname "$0")/lib.sh"
 
 # Trackpad: Enable tap to click
 defaults_write com.apple.AppleMultitouchTrackpad Clicking bool true
