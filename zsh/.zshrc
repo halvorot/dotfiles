@@ -66,5 +66,8 @@ eval "$(uvx --generate-shell-completion zsh)"
 # Mise
 eval "$(mise activate zsh)"
 
+# Zoxide
+eval "$(zoxide init zsh)"
+
 # Starship (should be at the end)
 eval "$(starship init zsh)"export PATH="$HOME/.local/bin:$PATH"
