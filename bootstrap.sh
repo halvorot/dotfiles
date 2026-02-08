@@ -2,7 +2,7 @@
 set -e
 
 # Available stow packages
-ALL_PACKAGES=(claude git homebrew starship zsh mise)
+ALL_PACKAGES=(claude git homebrew starship zsh mise tmux)
 
 confirm() {
   read -r -p "$1 [y/N] " response

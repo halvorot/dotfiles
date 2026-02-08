@@ -26,6 +26,11 @@ Each directory maps directly to $HOME, so `zsh/.zshrc → ~/.zshrc` and `starshi
 
 ### Applying dotfiles
 
+#### Additional manual configs
+
+- Remap Caps-Lock to Control in `System Preferences -> Keyboard -> Keyboard Shortcuts -> Modifier keys`
+- Change the shortcut for `Move focus to next window` in `System Preferences -> Keyboard -> Keyboard Shortcuts -> Keyboard`
+
 #### Complete bootstrap
 
 From the root of the dotfiles repo, run:
