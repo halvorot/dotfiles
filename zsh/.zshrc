@@ -7,6 +7,8 @@ export ARCHFLAGS="-arch arm64"
 # scripts
 export PATH="$HOME/.config/scripts:$PATH"
 
+export PATH="$HOME/.local/bin:$PATH"
+
 # Antidote
 source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
 antidote load
@@ -21,16 +23,15 @@ zstyle ':completion:*' menu select
 compinit
 
 # Smart history: Up/Down arrows search history by current input
-autoload -Uz up-line-or-beginning-search
-autoload -Uz down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey '^[[A' up-line-or-beginning-search
-bindkey '^[[B' down-line-or-beginning-search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 # Quality of life
-setopt HIST_IGNORE_DUPS SHARE_HISTORY
-bindkey -e
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
 
 bindkey " " magic-space # To undo key binding for space, remove this line and run `bindkey " " self-insert` in terminal
 
@@ -40,7 +41,7 @@ autoload -Uz add-zsh-hook
 # Auto-activate Python virtual environments
 function auto_venv() {
   # If already in a virtualenv, do nothing
-  if [[ -n "$VIRTUAL_ENV" && "$PWD" != *"${VIRTUAL_ENV:h}"* ]]; then
+  if [[ -n "$VIRTUAL_ENV" && "$PWD" != ${VIRTUAL_ENV:h}* ]]; then
     deactivate
     return  
   fi
@@ -57,6 +58,7 @@ function auto_venv() {
   done
 }
 
+auto_venv # Run on startup
 add-zsh-hook chpwd auto_venv
 
 # uv completions
@@ -70,4 +72,4 @@ eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
 
 # Starship (should be at the end)
-eval "$(starship init zsh)"export PATH="$HOME/.local/bin:$PATH"
+eval "$(starship init zsh)"
