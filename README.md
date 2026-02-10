@@ -6,7 +6,11 @@ This repository contains my personal dotfiles, managed using [GNU Stow](https://
 
 Each directory in the repo corresponds to a set of configuration files for a specific application (e.g., `zsh`, `homebrew`, `git`). Stow creates symlinks from these files to my home directory.
 
-## Installation
+Each directory maps directly to $HOME, so `zsh/.zshrc → ~/.zshrc` and `starship/.config/starship.toml → ~/.config/starship.toml`
+
+## Usage
+
+0. Install `git` and `homebrew`
 
 1. Clone the repository:
 
@@ -15,49 +19,45 @@ Each directory in the repo corresponds to a set of configuration files for a spe
     cd ~/dotfiles
     ```
 
-## Usage
+2. Apply to the system via either:
 
-Each directory maps directly to $HOME, so `zsh/.zshrc → ~/.zshrc` and `starship/.config/starship.toml → ~/.config/starship.toml`
+    **Complete bootstrap**
 
-### Adding dotfiles
+    ```sh
+    ./bootstrap.sh
+    ```
+
+    This will safely:
+
+    - Create/update symlinks using `stow`
+    - Apply macOS system defaults
+    - Optionally, install apps from Brewfile via Homebrew
+    - Is safe to re-run without side effects
+
+    Or **selective bootstrap** with
+
+    ```sh
+    ./bootstrap.sh git zsh # Stow only git and zsh
+    ```
+
+    Or use **stow directly**:
+
+    ```sh
+    stow <directory>
+    ```
+
+    To remove symlinks, use `stow -D <directory>`
+
+### Additional manual configs
+
+- Remap `Caps-Lock` to `Control` in `System Preferences -> Keyboard -> Keyboard Shortcuts -> Modifier keys`
+- Change the shortcut for `Move focus to next window` in `System Preferences -> Keyboard -> Keyboard Shortcuts -> Keyboard`
+
+## Adding new dotfiles
 
 - Add new configuration files in a respective directory
 - Update `ALL_PACKAGES` in `bootstrap.sh` if adding a new package
-
-### Applying dotfiles
-
-#### Additional manual configs
-
-- Remap Caps-Lock to Control in `System Preferences -> Keyboard -> Keyboard Shortcuts -> Modifier keys`
-- Change the shortcut for `Move focus to next window` in `System Preferences -> Keyboard -> Keyboard Shortcuts -> Keyboard`
-
-#### Complete bootstrap
-
-From the root of the dotfiles repo, run:
-
-```sh
-./bootstrap.sh
-```
-
-This will safely:
-
-- Create/update symlinks using `stow`
-- Apply macOS system defaults
-- Re-run without side effects
-
-#### Selective applying
-
-Stow specific packages only:
-
-```sh
-./bootstrap.sh git zsh         # Stow only git and zsh
-./bootstrap.sh --help           # Show all options
-```
-
-Or use stow directly:
-
-- Use `stow <directory>` when in the `dotfiles` directory to symlink them to your home directory
-- To remove symlinks, use `stow -D <directory>`
+- Run `./bootstrap.sh`
 
 ## Features
 
@@ -65,19 +65,19 @@ Or use stow directly:
 
 Script: `~/.config/scripts/brew-sync`
 
+To use, run in terminal:
+
+```sh
+brew-sync
+```
+
 Syncs system with `~/Brewfile`:
 
 - Updates Homebrew
 - Upgrades formulas and casks (including greedy casks)
 - Installs missing Brewfile items
 - Detects items not in Brewfile with interactive cleanup option
-- Removes old versions
-
-Usage:
-
-```sh
-brew-sync
-```
+- Cleans up old versions
 
 ### macOS System Defaults
 
