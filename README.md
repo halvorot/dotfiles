@@ -8,7 +8,18 @@ Each directory in the repo corresponds to a set of configuration files for a spe
 
 Each directory maps directly to $HOME, so `zsh/.zshrc → ~/.zshrc` and `starship/.config/starship.toml → ~/.config/starship.toml`
 
-## Usage
+## What's Included
+
+- **claude**: [Claude Code](https://code.claude.com/docs/en/overview) instructions, agents, skills and settings.
+- **ghostty**: Config for the [Ghostty](https://ghostty.org) terminal.
+- **git**: Git config.
+- **homebrew**: [Homebrew](https://brew.sh) Brewfile containing apps.
+- **macos**: Script for setting macOS settings.
+- **mise**: [Mise](https://mise.jdx.dev) config for installed dev tools.
+- **starship**: Config for [Starship](https://starship.rs/), a cross-shell prompt.
+- **zsh**: [Zsh](https://www.zsh.org/) shell configurations.
+
+## Installation
 
 0. Install `git` and `homebrew`
 
