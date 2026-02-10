@@ -13,7 +13,7 @@ Each directory maps directly to $HOME, so `zsh/.zshrc → ~/.zshrc` and `starshi
 - **claude**: [Claude Code](https://code.claude.com/docs/en/overview) instructions, agents, skills and settings.
 - **ghostty**: Config for the [Ghostty](https://ghostty.org) terminal.
 - **git**: Git config.
-- **homebrew**: [Homebrew](https://brew.sh) Brewfile containing apps.
+- **homebrew**: [Homebrew](https://brew.sh) Brewfile for declarative installation of apps.
 - **macos**: Script for setting macOS settings.
 - **mise**: [Mise](https://mise.jdx.dev) config for installed dev tools.
 - **starship**: Config for [Starship](https://starship.rs/), a cross-shell prompt.
