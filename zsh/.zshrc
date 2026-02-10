@@ -4,11 +4,13 @@ export EDITOR="code -w"
 # Compilation flags
 export ARCHFLAGS="-arch arm64"
 
+# Set XDG directories
 export XDG_CONFIG_HOME="$HOME/.config"
 
-# scripts
+# Add custom scripts to PATH
 export PATH="$HOME/.config/scripts:$PATH"
 
+# Add local bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
 # Antidote
