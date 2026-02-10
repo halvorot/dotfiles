@@ -4,6 +4,8 @@ export EDITOR="code -w"
 # Compilation flags
 export ARCHFLAGS="-arch arm64"
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # scripts
 export PATH="$HOME/.config/scripts:$PATH"
 
