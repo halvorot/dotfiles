@@ -20,6 +20,7 @@ brew "uv"
 brew "zoxide"
 
 cask "affinity"
+cask "claude"
 cask "claude-code"
 cask "figma"
 cask "font-jetbrains-mono-nerd-font"
