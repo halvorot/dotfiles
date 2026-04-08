@@ -11,6 +11,7 @@ Each directory maps directly to $HOME, so `zsh/.zshrc → ~/.zshrc` and `starshi
 ## What's Included
 
 - **claude**: [Claude Code](https://code.claude.com/docs/en/overview) instructions, agents, skills and settings.
+- **opencode**: [OpenCode](https://opencode.ai) config.
 - **ghostty**: Config for the [Ghostty](https://ghostty.org) terminal.
 - **git**: Git config.
 - **homebrew**: [Homebrew](https://brew.sh) Brewfile for declarative installation of apps.
