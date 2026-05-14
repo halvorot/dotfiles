@@ -1,4 +1,4 @@
-# Clause instructions
+# Agent instructions
 
 In all interactions and commit messages, be extremely concise and sacrifice grammar for the sake for concision.
 
