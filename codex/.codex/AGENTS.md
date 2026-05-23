@@ -25,3 +25,4 @@ Ask me any questions you need clarification to instead of making guesses or assu
 - Your primary method for interacting with GitHub should be the GitHub CLI.
 - Use sub-agents for research and exploratory work to avoid context bloating.
 - Always use context7 when I need code generation, setup or configuration steps, or library/API documentation to get up-to-date, version-specific documentation and code examples. This means you should automatically use the Context7 MCP tools to resolve library id and get library docs without me having to explicitly ask.
+- I use Fibery as my Life OS, knowledge base, and main note taking system. Use the Fibery MCP to interact with it.
