@@ -15,7 +15,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Antidote
 source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
-antidote load
+antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
 
 # fzf completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -25,6 +25,11 @@ autoload -Uz compinit
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*'
 zstyle ':completion:*' menu select
 compinit
+
+# Carapace completion library configuration (keep this straight after compinit)
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(carapace _carapace)
 
 # Smart history: Up/Down arrows search history by current input
 bindkey '^[[A' history-substring-search-up
@@ -64,10 +69,6 @@ function auto_venv() {
 
 auto_venv # Run on startup
 add-zsh-hook chpwd auto_venv
-
-# uv completions
-eval "$(uv generate-shell-completion zsh)"
-eval "$(uvx --generate-shell-completion zsh)"
 
 # Mise
 eval "$(mise activate zsh)"
