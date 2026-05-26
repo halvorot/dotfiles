@@ -22,14 +22,15 @@ antidote load ${ZDOTDIR:-$HOME}/.zsh_plugins.txt
 
 # Zsh completion
 autoload -Uz compinit
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*'
-zstyle ':completion:*' menu select
 compinit
 
 # Carapace completion library configuration (keep this straight after compinit)
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
-zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+export CARAPACE_MATCH=1
 source <(carapace _carapace)
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*'
+zstyle ':completion:*' menu select
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 
 # Smart history: Up/Down arrows search history by current input
 bindkey '^[[A' history-substring-search-up
