@@ -26,7 +26,7 @@ compinit
 
 # Carapace completion library configuration (keep this straight after compinit)
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
-export CARAPACE_MATCH=1
+export CARAPACE_MATCH=1 # optional, 1 = case-insensitive
 source <(carapace _carapace)
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*'
 zstyle ':completion:*' menu select
