@@ -14,4 +14,9 @@ defaults_write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightC
 # Trackpad: Disable three-finger drag (use your current setting)
 defaults_write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag bool false
 
+# Trackpad: Swipe between pages with two fingers
+defaults_write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls bool true
+defaults_write com.apple.AppleMultitouchTrackpad TrackpadHorizScroll bool true
+defaults_write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadHorizScroll bool true
+
 restart "System Preferences" "SystemUIServer"
