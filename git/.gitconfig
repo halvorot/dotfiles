@@ -5,3 +5,5 @@ name = Halvor Ødegård Teigen
 email = halvorot@gmail.com
 [pull]
 	rebase = false
+[core]
+	autocrlf = input

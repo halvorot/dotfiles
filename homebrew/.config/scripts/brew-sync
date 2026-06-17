@@ -8,10 +8,10 @@ echo "==> Updating Homebrew..."
 brew update
 
 echo -e "\n==> Upgrading formulas..."
-brew upgrade
+brew upgrade --no-ask
 
 echo -e "\n==> Upgrading casks..."
-brew upgrade --cask --greedy
+brew upgrade --cask --greedy --no-ask
 
 echo -e "\n==> Installing missing Brewfile items..."
 brew bundle install --file="${BREWFILE}"
