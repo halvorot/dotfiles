@@ -9,5 +9,13 @@
     "openai-codex/gpt-5.4-mini",
     "openai-codex/gpt-5.6-luna",
     "openai-codex/gpt-5.6-terra"
+  ],
+  "packages": [
+    "npm:pi-mcp-adapter",
+    "npm:pi-web-access",
+    "npm:pi-subagents",
+    "npm:context-mode",
+    "npm:pi-codex-goal",
+    "npm:pi-agent-browser-native"
   ]
 }
