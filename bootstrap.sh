@@ -2,7 +2,7 @@
 set -e
 
 # Available stow packages
-ALL_PACKAGES=(claude codex opencode pi git homebrew starship zsh mise ghostty)
+ALL_PACKAGES=(agents claude codex opencode pi git homebrew starship zsh mise ghostty)
 
 confirm() {
   read -r -p "$1 [y/N] " response
