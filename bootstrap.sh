@@ -117,7 +117,7 @@ echo ""
 # Homebrew
 if command -v brew >/dev/null 2>&1; then
   if confirm "Install Homebrew apps from Brewfile?"; then
-    brew bundle install --file homebrew/Brewfile
+    brew bundle install --file homebrew/Brewfile --jobs=$(sysctl -n hw.ncpu)
   else
     echo "[brew] Skipped"
   fi

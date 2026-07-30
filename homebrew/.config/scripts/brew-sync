@@ -14,7 +14,7 @@ echo -e "\n==> Upgrading casks..."
 brew upgrade --cask --greedy --no-ask
 
 echo -e "\n==> Installing missing Brewfile items..."
-brew bundle install --file="${BREWFILE}"
+brew bundle install --file="${BREWFILE}" --jobs=$(sysctl -n hw.ncpu)
 
 echo -e "\n==> Checking for items not in Brewfile..."
 CLEANUP_OUTPUT=$(brew bundle cleanup --file="${BREWFILE}" 2>&1 || true)
