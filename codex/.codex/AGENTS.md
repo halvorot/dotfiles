@@ -25,3 +25,4 @@ Ask me any questions you need clarification to instead of making guesses or assu
 - Your primary method for interacting with GitHub should be the GitHub CLI.
 - Use sub-agents for research and exploratory work to avoid context bloating.
 - I use Fibery as my Life OS, knowledge base, and main note taking system. Use the Fibery MCP to interact with it.
+  - I am on the Fibery Standard plan, not the Pro, so only make use of the features included in Standard. e.g. keep custom apps in the Personal/private tab.
